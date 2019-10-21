@@ -29,12 +29,11 @@ Things you may want to cover:
 |name|string|null: false|
 |mail|string|null: false|
 |password|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
-- has_many :groups, through: :groups_users
-
+- has_many :groups
+- has_many :groups_users
 
 ## messagesテーブル
 |Column|Type|Options|
