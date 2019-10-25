@@ -1,0 +1,36 @@
+.contents
+  .chat-side
+    .side-header
+      .side-header__name
+        Name
+      .side-header__icon
+        =link_to "", class: "side-header__icon side-header__icon--edit" do
+          =fa_icon "edit"
+        =link_to "", class: "side-header__icon side-header__icon--gear" do
+          =fa_icon "cog"
+
+    .groups
+      - @groups.each do |group|
+        = render partial: "group", locals: { group: group }
+
+  .chat-main
+    .main-header
+      .main-header__left-contents
+        .main-header__left-contents__current-group
+          sample
+        .main-header__left-contents__current-group-member
+          Member : test
+      %input.main-header__edit-btn{type: "submit", value: "Edit"}
+        
+    .messages
+      - @messages.each do |message|
+        = render partial: "message", locals: { message: message }
+
+    .form
+      .form__new
+        .form__new__input-box
+          %input.form__new__input-box__text{type: "text", placeholder: "type a message"}
+            %label.form__new__input-box__text--file-upload
+              %input{type: "file", id: "selector"}
+              = fa_icon "picture-o" , class: "form__new__input-box__text--file-upload--image-icon"  
+        %input.form__new__send-btn{type: "submit", value: "Send"}

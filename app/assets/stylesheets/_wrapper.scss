@@ -1,0 +1,159 @@
+
+@import "mixin";
+
+.contents{
+  @include clearfix();
+  @include sizing();
+
+  .chat-side{
+    @include sizing($side_height,$side_width);
+    float :left;
+    color : $side-font-color;
+
+    .side-header{
+      @include sizing($side-header_height, $side_width);
+      @include padding-sizing(0, 20px, 0, 20px);
+      line-height     : $side-header_height;
+      display         : flex;
+      justify-content : space-between;
+      background-color: $side-hedaer_backgroundcolor;
+      &__name{
+        @include font-bold(16px);
+      }
+      &__icon{
+        color          : $side-font-color;
+        text-decoration: none;
+      }
+    }
+
+    .groups{
+      @include sizing($groups_height,$side_width);
+      background-color  : $side_backgroundcolor;
+      color             : $side-font-color;
+      overflow          : scroll;
+      .group{
+        @include padding-sizing(20px);
+        &__name{
+          @include font-bold(15px);
+        }
+        &__latest-message{
+          @include font-bold(11px);
+        }
+      }
+    }
+  }
+
+  .chat-main{
+    @include sizing($main_height, $main_width);
+    float     :left;
+
+    .main-header{
+      @include sizing($main-header_height, $main-header_width);
+      @include padding-sizing(0, 40px, 0, 40px);
+      display            : flex;
+      justify-content    : space-between;
+      background-color   : $main-header_backgroundcolor;
+      border-bottom      : solid 1px #eeeeee;
+      &__left-contents{
+        &__current-group{
+          @include padding-sizing(35px, 0, 0, 0);
+          font-size    : 20px;
+          color        : $main-header_group-name_color;
+        }
+        &__current-group-member{
+          @include padding-sizing(15px, 0, 0, 0);
+          color         : $main-font-subcolor;
+        }
+      }
+      &__edit-btn{
+        @include padding-sizing(0, 20px, 0, 20px);
+        height        : 40px;
+        line-height   : 40px;
+        text-align    : center;
+        margin-top    : 28px;
+        border        : solid 1px $btn_color;
+        color         : $btn_color;
+      }
+    }
+    
+    .messages{
+      @include sizing($message_height, $message_width);
+      @include padding-sizing(26px,0,0,0);
+      overflow        : scroll;
+      background-color: $main-message_backgroundcolor;
+      &__message{
+        @include padding-sizing(20px,40px,20px,40px);
+        &__post{
+          display       : flex;
+          margin-bottom : 10px;
+          &__user{
+            @include font-bold(16px);
+            color       : $main-font-color;
+            margin-right: 10px;
+          }
+          &__time{
+            font-size   : 12px;
+            color       : $main-font-subcolor;
+          }
+        }
+        &__text{
+          font-size     :  14px;
+          color         : $main-font-color;
+        }
+      }
+    }
+
+
+    .form{
+      @include padding-sizing($padding_calc,40px,$padding_calc,40px);
+      @include sizing($form_height, $form_width);
+      position        : fixed;
+      bottom          : 0;
+      background-color: $form_backgroundcolor;
+      &__new{
+        height         : $new_height;
+        display        : flex;
+        justify-content: space-between;
+        &__input-box{
+          display        : flex;
+          justify-content: space-between;
+          width          : $input-box_width;
+          box-sizing     : border-box;
+          margin-right   : 15px;
+          position       : relative;
+          &__text{
+            @include padding-sizing(0,40px,0,10px);
+            @include sizing($new_height, 100%);
+            color        : $main-font-color;
+            font-size    : 16px;
+            line-height  : $new_height;
+            &--file-upload{
+              line-height : 50px;
+              position    : absolute;
+              right       : 10px;
+              margin      : 0;
+              cursor      : pointer;
+              &__image-icon{
+                color    : black;
+                font-size: 20px;
+              }
+              #selector{
+                display  : none;
+              }
+            }
+          }
+        }
+
+        &__send-btn{
+          @include sizing($new_height, 100px);
+          line-height     : $new_height;
+          background-color: $btn_color;
+          text-align      : center;
+          color           : $side-font-color;
+        }
+      }
+    }
+
+  }
+}
+

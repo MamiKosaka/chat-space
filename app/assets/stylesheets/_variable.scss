@@ -1,0 +1,40 @@
+/*複数使用する色の変数定義*/
+$btn_color                      : #38AEF0 ;
+$preheader_backgroundcolor      : #38AEF0 ;
+
+$side_backgroundcolor           : #2f3e51 ;
+$side-hedaer_backgroundcolor    : #253141 ;
+$side-font-color                : #ffffff ;
+
+$main-header_backgroundcolor    : #ffffff ;
+$main-header_group-name_color   : #333333 ;
+$main-message_backgroundcolor   : #fafafa ;
+$main-font-color                : #434A54 ;
+$main-font-subcolor             : #999999 ;
+
+$form_backgroundcolor           : #DDDDDD ;
+$input-box-backgroundcolor      : #ffffff ;
+
+/*サイズの定義*/
+$contents_height   : 100vh;
+$contents_width    : 100vw;
+
+$side_height       : 100vh;
+$side_width        : 300px;
+$side-header_height: 100px;
+$groups_height     : calc(100vh - #{$side-header_height});
+
+$main_height       : 100vh;
+$main_width        : calc(100vw - #{$side_width});
+
+$main-header_height: 100px;
+$main-header_width : $main_width;
+
+$form_height       : 90px;
+$form_width        : $main_width;
+$new_height        : 50px;
+$padding_calc      : calc(#{$form_height}/2 - #{$new_height}/2);
+$input-box_width   : calc(100% - 40px*2 - 15px);
+
+$message_height    : calc(100vh - #{$main-header_height} - #{$form_height});
+$message_width     : $main_width;

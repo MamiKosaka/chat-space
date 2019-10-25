@@ -1,0 +1,8 @@
+.messages__message
+  .messages__message__post
+    .messages__message__post__user
+      = message[:user]
+    .messages__message__post__time 
+      = message[:time]
+  .messages__message__text
+    = message[:text]
