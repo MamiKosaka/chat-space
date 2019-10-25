@@ -20,7 +20,7 @@
           sample
         .main-header__left-contents__current-group-member
           Member : test
-      %input.main-header__edit-btn{:type => "submit", :value => "Edit"}
+      %input.main-header__edit-btn{type: "submit", value: "Edit"}
         
     .messages
       - @messages.each do |message|
@@ -29,8 +29,8 @@
     .form
       .form__new
         .form__new__input-box
-          %input.form__new__input-box__text{:type => "text", :placeholder => "type a message"}
+          %input.form__new__input-box__text{type: "text", placeholder: "type a message"}
             %label.form__new__input-box__text--file-upload
-              %input{:type => "file", :id => "selector"}
+              %input{type: "file", id: "selector"}
               = fa_icon "picture-o" , class: "form__new__input-box__text--file-upload--image-icon"  
-        %input.form__new__send-btn{:type => "submit", :value => "Send"}
+        %input.form__new__send-btn{type: "submit", value: "Send"}
