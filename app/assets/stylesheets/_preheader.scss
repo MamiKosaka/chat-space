@@ -1,6 +1,16 @@
 .preheader{
   width: 100%;
-  background-color: $preheader_backgroundcolor;
   color: $side-font-color;
-  text-align: center;
+  //background-color: red;
+  //height: 5px;
+  .alert{
+    color: $side-font-color;
+    text-align: center;
+    background-color: $alert_color;
+  }
+  .notice{
+    color: $side-font-color;
+    text-align: center;
+    background-color: #38AEF0;
+  }
 }
