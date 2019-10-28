@@ -29,15 +29,20 @@
     .groups{
       @include sizing($groups_height,$side_width);
       background-color  : $side_backgroundcolor;
-      color             : $side-font-color;
       overflow          : scroll;
       .group{
         @include padding-sizing(20px);
         &__name{
           @include font-bold(15px);
+          text-decoration: none;
+          color  : $side-font-color;
+          //display:  block;
         }
         &__latest-message{
           @include font-bold(11px);
+          text-decoration: none;
+          color  : $side-font-color;
+          //display: block;
         }
       }
     }

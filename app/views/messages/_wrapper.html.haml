@@ -1,17 +1,5 @@
 .contents
-  .chat-side
-    .side-header
-      .side-header__name
-        = current_user.name
-      .side-header__icon
-        =link_to "", class: "side-header__icon side-header__icon--edit" do
-          =fa_icon "edit"
-        =link_to edit_user_path(current_user), class: "side-header__icon side-header__icon--gear" do
-          =fa_icon "cog"
-
-    .groups
-      - @groups.each do |group|
-        = render partial: "group", locals: { group: group }
+  = render partial: "layouts/side_var" 
 
   .chat-main
     .main-header
