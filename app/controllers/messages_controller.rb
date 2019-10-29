@@ -1,20 +1,29 @@
 class MessagesController < ApplicationController
+  before_action :set_group
+
   def index
-    @groups = []
-    group1  = {name: "sample", text: "test"}
-    group2  = {name: "chatGroup1", text: "message1"}
-    group3  = {name: "chatGroup2", text: "message2"}
-    @groups << group1
-    @groups << group2
-    @groups << group3
+    @message = Message.new
+    @messages = @group.messages.includes(:user)
+  end
 
-    @messages = []
-    message1 = {user: "Kosaka", time: "2019/10/23(Wed) 16:52:10",text: "message-test1"}
-    message2 = {user: "Masaki", time: "2019/10/23(Wed) 17:30:32",text: "message-test2"}
-    message3 = {user: "Kaneko", time: "2019/10/23(Wed) 18:26:45",text: "message-test3"}
-    @messages << message1
-    @messages << message2
-    @messages << message3
+  def create
+    @message = @group.messages.new(message_params)
+    if @message.save
+      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+    else
+      @messages = @group.messages.includes(:user)
+      flash.now[:alert] = 'メッセージを入力してください。'
+      render :index
+    end
+  end
 
+  private
+
+  def message_params
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
   end
 end

@@ -30,19 +30,20 @@
       @include sizing($groups_height,$side_width);
       background-color  : $side_backgroundcolor;
       overflow          : scroll;
+      text-decoration-line: none;
       .group{
         @include padding-sizing(20px);
+        text-decoration-line: none;
+        a{text-decoration-line: none;}
         &__name{
           @include font-bold(15px);
-          text-decoration: none;
+          text-decoration-line: none;
           color  : $side-font-color;
-          //display:  block;
         }
         &__latest-message{
           @include font-bold(11px);
-          text-decoration: none;
+          text-decoration-line: none;
           color  : $side-font-color;
-          //display: block;
         }
       }
     }
@@ -72,12 +73,13 @@
       }
       &__edit-btn{
         @include padding-sizing(0, 20px, 0, 20px);
-        height        : 40px;
-        line-height   : 40px;
-        text-align    : center;
-        margin-top    : 28px;
-        border        : solid 1px $btn_color;
-        color         : $btn_color;
+        height          : 40px;
+        line-height     : 40px;
+        text-align      : center;
+        margin-top      : 28px;
+        border          : solid 1px $btn_color;
+        color           : $btn_color;
+        text-decoration : none;
       }
     }
     
@@ -101,9 +103,14 @@
             color       : $main-font-subcolor;
           }
         }
-        &__text{
-          font-size     :  14px;
-          color         : $main-font-color;
+        &__whole{
+          &__text{
+            font-size     :  14px;
+            color         : $main-font-color;
+          }
+          &__image{
+            display: inline;
+          }
         }
       }
     }
@@ -117,6 +124,7 @@
       background-color: $form_backgroundcolor;
       &__new{
         height         : $new_height;
+        width: 100%;
         display        : flex;
         justify-content: space-between;
         &__input-box{
@@ -126,7 +134,7 @@
           box-sizing     : border-box;
           margin-right   : 15px;
           position       : relative;
-          &__text{
+          .form__new__input-box__text{
             @include padding-sizing(0,40px,0,10px);
             @include sizing($new_height, 100%);
             color        : $main-font-color;
@@ -138,11 +146,11 @@
               right       : 10px;
               margin      : 0;
               cursor      : pointer;
-              &__image-icon{
+              &--image-icon{
                 color    : black;
                 font-size: 20px;
               }
-              #selector{
+              &--selector{
                 display  : none;
               }
             }
