@@ -1,7 +1,6 @@
 .group
-  = link_to edit_group_path(group) do
+  = link_to group_messages_path(group) do
     .group__name
-      = group[:name]
+      =group.name
     .group__latest-message
-      //= group[:text]
-      メッセージはまだありません。
+      =group.show_last_message

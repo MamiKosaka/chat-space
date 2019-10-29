@@ -5,20 +5,23 @@
     .main-header
       .main-header__left-contents
         .main-header__left-contents__current-group
-          sample
+          = @group.name
         .main-header__left-contents__current-group-member
-          Member : test
-      %input.main-header__edit-btn{type: "submit", value: "Edit"}
+      = link_to "Edit", edit_group_path(@group), class: "main-header__edit-btn"
         
     .messages
       - @messages.each do |message|
         = render partial: "message", locals: { message: message }
 
     .form
-      .form__new
-        .form__new__input-box
-          %input.form__new__input-box__text{type: "text", placeholder: "type a message"}
-            %label.form__new__input-box__text--file-upload
-              %input{type: "file", id: "selector"}
-              = fa_icon "picture-o" , class: "form__new__input-box__text--file-upload--image-icon"  
-        %input.form__new__send-btn{type: "submit", value: "Send"}
+      = form_for [@group, @message] do |f|
+        .form__new
+          .form__new__input-box
+            = f.text_field :content, class: "form__new__input-box__text", placeholder: "type a message"
+            = f.label :image, class: "form__new__input-box__text--file-upload" do
+              = fa_icon "picture-o", class: "form__new__input-box__text--file-upload--image-icon"  
+              = f.file_field :image, class: "form__new__input-box__text--file-upload--selector"
+          = f.submit 'Send', class: "form__new__send-btn"
+
+
+    
