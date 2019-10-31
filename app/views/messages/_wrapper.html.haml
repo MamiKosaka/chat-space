@@ -7,6 +7,9 @@
         .main-header__left-contents__current-group
           = @group.name
         .main-header__left-contents__current-group-member
+          = "Member : "
+          - @group.users.each do |user|
+            = user.name
       = link_to "Edit", edit_group_path(@group), class: "main-header__edit-btn"
         
     .messages
