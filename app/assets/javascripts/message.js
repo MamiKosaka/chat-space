@@ -1,41 +1,32 @@
 $(function(){
   function buildHTML(message){
     var html;
+
+    var img_html;
     if(message.image.url == null){
-      html = `<div class="messages__message">
-                    <div class="messages__message__post">
-                      <div class="messages__message__post__user">
-                        ${message.name}
-                      </div>
-                      <div class="messages__message__post__time">
-                        ${message.date}
-                      </div>
-                    </div>
-                    <div class="messages__message__whole">
-                      <div class="messages__message__whole__text">
-                        ${message.content}
-                      </div>
-                    </div>
-                  </div>`
+      img_html = "";
     }
     else{
-      html = `<div class="messages__message">
-                <div class="messages__message__post">
-                  <div class="messages__message__post__user">
-                    ${message.name}
-                  </div>
-                  <div class="messages__message__post__time">
-                    ${message.date}
-                  </div>
-                </div>
-                <div class="messages__message__whole">
-                  <div class="messages__message__whole__text">
-                    ${message.content}
-                  </div>
-                  <img class="messages__message__whole__image" src="${message.image.url}"></div>            
-                </div>
-              </div>`
+      img_html = `<img class="messages__message__whole__image" src="${message.image.url}"></img>`
     }
+
+    html = `<div class="messages__message">
+          <div class="messages__message__post">
+            <div class="messages__message__post__user">
+              ${message.name}
+            </div>
+            <div class="messages__message__post__time">
+              ${message.date}
+            </div>
+          </div>
+          <div class="messages__message__whole">
+            <div class="messages__message__whole__text">
+              ${message.content}
+            </div>
+            ${img_html}
+          </div>
+        </div>`
+
     return html;
   }
   
@@ -55,8 +46,7 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-      $('.form__new__input-box__text').val('');
-      $('.form__new__input-box__text--file-upload--selector').val('');
+      $("form")[0].reset();
     })
     .fail(function(){
       alert("メッセージ送信に失敗しました。");
