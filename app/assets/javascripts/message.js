@@ -6,12 +6,10 @@ $(function () {
       var html;
 
       var img_html;
-      if (message.image.url == null) {
-        img_html = "";
-      }
-      else {
-        img_html = `<img class="messages__message__whole__image" src="${message.image.url}"></img>`
-      }
+      img_html = ((message.image.url == null) 
+                 ? "" 
+                 : `<img class="messages__message__whole__image" src="${message.image.url}"></img>`
+                 );
 
       html = `<div class="messages__message", data-id=${message.id}>
           <div class="messages__message__post">
@@ -85,6 +83,6 @@ $(function () {
           alert("メッセージ受信に失敗しました。");
         });
     };
-    setInterval(reloadMessages, 2000);
+    setInterval(reloadMessages, 5000);
   };
 });
