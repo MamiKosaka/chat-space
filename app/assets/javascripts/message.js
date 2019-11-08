@@ -1,5 +1,5 @@
 $(function () {
-  if (document.URL.match(/groups/)) {
+  if (document.URL.match("/messages")) {
     $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
 
     function buildHTML(message) {
