@@ -19,7 +19,7 @@ $(function () {
               ${message.user_name}
             </div>
             <div class="messages__message__post__time">
-              ${message.date}
+              ${message.created_at}
             </div>
           </div>
           <div class="messages__message__whole">
@@ -85,6 +85,6 @@ $(function () {
           alert("メッセージ受信に失敗しました。");
         });
     };
-    setInterval(reloadMessages, 5000);
+    setInterval(reloadMessages, 2000);
   };
 });
