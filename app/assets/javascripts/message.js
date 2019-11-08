@@ -4,8 +4,9 @@ $(function () {
 
     function buildHTML(message) {
       var html;
-
       var img_html;
+      console.log(message.created_at);
+
       img_html = ((message.image.url == null) 
                  ? "" 
                  : `<img class="messages__message__whole__image" src="${message.image.url}"></img>`
