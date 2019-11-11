@@ -5,7 +5,6 @@ $(function () {
     function buildHTML(message) {
       var html;
       var img_html;
-      console.log(message.created_at);
 
       img_html = ((message.image.url == null) 
                  ? "" 
